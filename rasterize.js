@@ -470,6 +470,9 @@ function loadModels() {
 function loadTexture(texFile, texObj) {
     var tri = texObj.length;
     texObj[tri] = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texObj[tri]);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE,
+              new Uint8Array([155, 155, 155, 255])); // gray
     texObj[tri].image = new Image();
     texObj[tri].image.crossOrigin = "Anonymous";
     texObj[tri].image.onload = function(){
